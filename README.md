@@ -82,7 +82,7 @@ The Spike Arrest policy protects against traffic spikes. It throttles the number
 3. Select **Trace** in the right side tab bar menu and the API Proxy configuration view will be displayed. Paste the Beers Proxy URL into the **Send Request URL** section and add a forward slash and number I.E. **/1** Select **Start Trace Session**, then click the **Send** button a few times to trigger the **Spike Arrest** policy. Click on the **Spike Arrest** policy icon in the **Transaction Map** to view the flow details in the **Phase Details** section below. 
 ![image alt text](./images/image_5.png)
 
-        curl https://{FQDN}/v1/beers/1
+      ```curl https://{FQDN}/v1/beers/1```
 
 ### Verify API Key Policy
 The Verify API Key policy lets you enforce verification of API keys at runtime, letting only apps with approved API keys access your APIs. This policy ensures that API keys are valid, have not been revoked, and are approved to consume the specific resources associated with your API products. 
@@ -94,7 +94,7 @@ The Verify API Key policy lets you enforce verification of API keys at runtime, 
 
 2. Select **Trace** in the right side tab bar menu and the API Proxy configuration view is displayed and select **Start Trace Session**. Click the **Send** button in the **Send Request URL** section to trigger the **Verify API Key** policy. You should receive a HTTP 401 error.
 
-        curl https://{FQDN}/v1/beers/1
+        ```curl https://{FQDN}/v1/beers/1```
 
 ## Lab 3: Management APIs
 
@@ -102,9 +102,7 @@ The Verify API Key policy lets you enforce verification of API keys at runtime, 
 
 In this lab, we will see how to use the Apigee management APIs to automate the promotion of API from a lower environment (test) to a higher environment (prod).
 
-```
-curl -X POST -H "Content-type:application/x-www-form-urlencoded" https://api.enterprise.apigee.com/v1/o/{Your-org-Name}/e/prod/apis/{Your-proxy-name}/revisions/1/deployments -u {Your-Apigee-Email-Address}
-```
+```curl -X POST -H "Content-type:application/x-www-form-urlencoded" https://api.enterprise.apigee.com/v1/o/{Your-org-Name}/e/prod/apis/{Your-proxy-name}/revisions/1/deployments -u {Your-Apigee-Email-Address}```
 When prompted, enter your Apigee Password.
 
 You should see a success response which looks like this: 
